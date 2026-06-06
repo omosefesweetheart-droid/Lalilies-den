@@ -1,99 +1,271 @@
-h<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
-<title>Lalilies Den</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Lalilies Den — The Ultimate Lisa Fan Hub</title>
+
 <style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
 body{
-  font-family: Arial, sans-serif;
-  background:#fff8dc;
-  margin:0;
-  padding:0;
+background:#0a0a0a;
+color:white;
 }
+
 header{
-  background:#ffcc00;
-  color:black;
-  text-align:center;
-  padding:30px;
+background:linear-gradient(90deg,#000,#1a1a1a,#000);
+padding:20px;
+position:sticky;
+top:0;
+z-index:1000;
+border-bottom:2px solid gold;
 }
-section{
-  padding:20px;
+
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
 }
+
+.logo{
+font-size:24px;
+font-weight:bold;
+color:gold;
+}
+
+.menu a{
+color:white;
+text-decoration:none;
+margin-left:15px;
+}
+
+.hero{
+height:90vh;
+background:url('https://images.unsplash.com/photo-1516280440614-37939bbacd81?q=80&w=1600') center/cover;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+position:relative;
+}
+
+.hero::before{
+content:'';
+position:absolute;
+top:0;
+left:0;
+right:0;
+bottom:0;
+background:rgba(0,0,0,0.65);
+}
+
+.hero-content{
+position:relative;
+z-index:2;
+padding:20px;
+}
+
+.hero h1{
+font-size:42px;
+color:gold;
+margin-bottom:15px;
+}
+
+.hero p{
+font-size:18px;
+margin-bottom:25px;
+}
+
+.btn{
+background:gold;
+color:black;
+padding:12px 24px;
+border:none;
+border-radius:8px;
+font-weight:bold;
+text-decoration:none;
+display:inline-block;
+}
+
+.section{
+padding:60px 20px;
+text-align:center;
+}
+
+.section h2{
+color:gold;
+margin-bottom:20px;
+font-size:30px;
+}
+
 .card{
-  background:white;
-  padding:15px;
-  margin:10px 0;
-  border-radius:10px;
-  box-shadow:0 2px 5px rgba(0,0,0,0.2);
+background:#151515;
+padding:20px;
+margin:15px;
+border-radius:12px;
+border:1px solid #333;
 }
-button{
-  background:#ffcc00;
-  border:none;
-  padding:10px 20px;
-  border-radius:5px;
-}
+
 </style>
 </head>
 
 <body>
 
 <header>
-<h1>💛 Lalilies Den 💛</h1>
-<p>The Official Fan Hub</p>
+<nav>
+
+<div class="logo">
+👑 Lalilies Den
+</div>
+
+<div class="menu">
+<a href="Login.html">Login</a>
+<a href="Sign up.html">Sign Up</a>
+<a href="Dashboard.html">Dashboard</a>
+</div>
+
+</nav>
 </header>
-<a href="Login.html"><button>Login</button></a>
-<a href="signup.html"><button>Sign Up</button></a>
-<hr>
+
+<section class="hero">
+
+<div class="hero-content">
+
+<h1>Lalilies Den — The Ultimate Lisa Fan Hub</h1>
 
 <p>
-🏠 Home |
-📰 News |
-📈 Charts |
-🎵 Music |
-🎮 Gaming |
-💬 Community |
-👑 VIP
+News, Music, Charts, Games, Community and VIP Experiences
+for every Lisa fan around the world.
 </p>
-<section>
-<div class="card">
-<h2>👑 About Lisa</h2>
-<p>Welcome to Lalilies Den, a fan community dedicated to Lisa.</p>
+
+<a href="Dashboard.html" class="btn">
+Enter Fan Hub
+</a>
+
 </div>
 
-<div class="card">
-<h2>📰 Latest News</h2>
-<p>News updates will appear here.</p>
-</div>
-
-<div class="card">
-<h2>🎵 Music</h2>
-<p>Music releases and streaming links will appear here.</p>
-</div>
-
-<div class="card">
-<h2>🎥 Videos</h2>
-<p>Latest videos will appear here.</p>
-</div>
-<div class="card">
-<h2>📈 Charts & Streams</h2>
-<p>Track Spotify streams, YouTube views, chart positions, records and achievements.</p>
-</div>
-
-<div class="card">
-<h2>🎮 Gaming Hub</h2>
-<p>Play fan games, quizzes, challenges, daily rewards and compete on leaderboards.</p>
-</div>
-
-<div class="card">
-<h2>🌐 Platforms</h2>
-<p>
-Spotify • Apple Music • YouTube • YouTube Music • Deezer • Instagram • TikTok • X • Discord
-</p>
-</div>
-<div class="card">
-<h2>💬 Community</h2>
-<button>Join Community</button>
-</div>
 </section>
 
+<section class="section">
+
+<h2>✨ Welcome</h2>
+
+<div class="card">
+<p>
+Welcome to Lalilies Den, your home for Lisa updates,
+streaming goals, fan activities, community discussions,
+VIP memberships and exclusive content.
+</p>
+</div>
+
+</section>
+<section class="section">
+
+<h2>📰 Latest News</h2>
+
+<div class="card">
+<h3>Lisa News Updates</h3>
+<p>Stay updated with the latest announcements, performances and projects.</p>
+</div>
+
+</section>
+
+<section class="section">
+
+<h2>🎵 Music Hub</h2>
+
+<div class="card">
+<h3>Latest Releases</h3>
+<p>Stream Lisa's newest songs and albums.</p>
+</div>
+
+</section>
+
+<section class="section">
+
+<h2>🎥 Videos</h2>
+
+<div class="card">
+<h3>Music Videos & Performances</h3>
+<p>Watch the latest performances and official videos.</p>
+</div>
+
+</section>
+
+<section class="section">
+
+<h2>📸 Photo Gallery</h2>
+
+<div class="card">
+<p>Exclusive photos, fan moments and event highlights.</p>
+</div>
+
+</section>
+<section class="section">
+
+<h2>📈 Charts & Streams</h2>
+
+<div class="card">
+<h3>Streaming Tracker</h3>
+<p>Monitor Spotify streams, YouTube views and chart milestones.</p>
+<a href="Charts.html" class="btn">Open Charts</a>
+</div>
+
+</section>
+
+<section class="section">
+
+<h2>🎮 Gaming Hub</h2>
+
+<div class="card">
+<h3>Fan Challenges</h3>
+<p>Play quizzes, earn points and compete with other fans.</p>
+</div>
+
+</section>
+
+<section class="section">
+
+<h2>💬 Community</h2>
+
+<div class="card">
+<h3>Join The Conversation</h3>
+<p>Discuss Lisa's music, performances and upcoming projects with fans.</p>
+</div>
+
+</section>
+
+<section class="section">
+
+<h2>💎 VIP Membership</h2>
+
+<div class="card">
+<h3>Exclusive Benefits</h3>
+<p>Access VIP events, rewards and premium fan experiences.</p>
+<a href="VIP.html" class="btn">Open VIP</a>
+</div>
+
+</section>
+
+<footer style="background:#000;padding:30px;text-align:center;border-top:2px solid gold;">
+
+<h3 style="color:gold;">👑 Lalilies Den</h3>
+
+<p>The Ultimate Lisa Fan Hub</p>
+
+<p style="margin-top:10px;">
+© 2026 Lalilies Den. All Rights Reserved.
+</p>
+
+</footer>
+
 </body>
-</html>
+  </html>
