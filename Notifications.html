@@ -1,76 +1,103 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Lalilies Notifications Center</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Notifications</title>
 
 <style>
 body{
+margin:0;
 background:#000;
 color:white;
 font-family:Arial,sans-serif;
-padding:20px;
 }
 
-h1{
-color:#ffd700;
+.header{
 text-align:center;
+padding:25px;
+border-bottom:1px solid #333;
 }
 
-.alert{
+.header h1{
+color:#FFD700;
+margin:0;
+}
+
+.card{
+display:block;
 background:#111;
-border:1px solid #ffd700;
-border-radius:12px;
+margin:15px;
 padding:20px;
-margin:20px 0;
-}
-
-h2{
-color:#ffd700;
-}
-
-.btn{
-background:#ffd700;
-color:black;
-padding:10px 18px;
-border-radius:8px;
+border-radius:15px;
+border:1px solid #333;
 text-decoration:none;
+color:white;
+}
+
+.card-title{
+color:#FFD700;
+font-size:22px;
 font-weight:bold;
-display:inline-block;
-margin-top:10px;
+margin-bottom:10px;
+}
+
+.card-text{
+color:#ddd;
+}
+
+.back-btn{
+display:block;
+margin:20px 15px;
+background:#FFD700;
+color:black;
+text-decoration:none;
+padding:15px;
+text-align:center;
+border-radius:10px;
+font-weight:bold;
 }
 </style>
 </head>
 
 <body>
 
-<h1>🔔 Notifications Center</h1>
-
-<div class="alert">
-<h2>📰 News Alert</h2>
-<p>Latest Lisa news and announcements will appear here.</p>
+<div class="header">
+<h1>🔔 Notifications</h1>
 </div>
 
-<div class="alert">
-<h2>🎵 Music Release Alert</h2>
-<p>New songs, albums and music videos.</p>
+<a href="#" class="card">
+<div class="card-title">📢 Announcements</div>
+<div class="card-text">
+Latest updates from Lalilies Den.
 </div>
+</a>
 
-<div class="alert">
-<h2>📅 Event Reminder</h2>
-<p>Upcoming performances, tours and appearances.</p>
+<a href="#" class="card">
+<div class="card-title">🎯 Missions</div>
+<div class="card-text">
+Community missions and streaming tasks.
 </div>
+</a>
 
-<div class="alert">
-<h2>🏆 Achievement Alert</h2>
-<p>New records, milestones and chart achievements.</p>
+<a href="#" class="card">
+<div class="card-title">📅 Events</div>
+<div class="card-text">
+Upcoming fan events and activities.
 </div>
+</a>
 
-<div class="alert">
-<h2>💬 Community Updates</h2>
-<p>Latest discussions and fan activities.</p>
+<a href="#" class="card">
+<div class="card-title">🏆 Rewards</div>
+<div class="card-text">
+Achievements, badges and rewards.
 </div>
+</a>
 
-<a href="index.html" class="btn">← Back to Home</a>
+<a href="Dashboard.html" class="back-btn">
+← Back to Dashboard
+</a>
 
 </body>
 </html>
