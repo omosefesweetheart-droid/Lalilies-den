@@ -1,120 +1,193 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Lalilies Den</title>
 
 <style>
-body{
+*{
 margin:0;
-font-family:Arial,sans-serif;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, sans-serif;
+}
+
+body{
 background:#000;
 color:white;
 }
 
 .hero{
+position:relative;
+height:100vh;
+background:url('d836d1c8ab0d697a13a76b490959aded.png') center/cover no-repeat;
+display:flex;
+justify-content:center;
+align-items:center;
 text-align:center;
 }
 
-.hero img{
+.overlay{
+position:absolute;
+top:0;
+left:0;
 width:100%;
-max-height:500px;
-object-fit:cover;
+height:100%;
+background:rgba(0,0,0,0.65);
+}
+
+.hero-content{
+position:relative;
+z-index:2;
+padding:20px;
 }
 
 .logo{
-font-size:40px;
+font-size:48px;
 font-weight:bold;
 color:#FFD700;
-margin-top:20px;
+margin-bottom:15px;
 }
 
-.tagline{
+.hero h1{
+font-size:42px;
+margin-bottom:15px;
+}
+
+.hero p{
+max-width:700px;
+margin:auto;
 font-size:18px;
+line-height:1.6;
 color:#ddd;
-padding:10px 20px;
 }
 
 .buttons{
-display:flex;
-justify-content:center;
-gap:15px;
-margin:30px 0;
+margin-top:30px;
 }
 
 .btn{
+display:inline-block;
+padding:14px 30px;
+margin:10px;
 background:#FFD700;
-color:black;
-padding:14px 28px;
+color:#000;
 text-decoration:none;
-border-radius:10px;
 font-weight:bold;
+border-radius:8px;
+transition:0.3s;
+}
+
+.btn:hover{
+background:#fff;
 }
 
 .section{
-padding:30px;
+padding:80px 20px;
 text-align:center;
+}
+
+.section h2{
+color:#FFD700;
+font-size:32px;
+margin-bottom:20px;
+}
+
+.section p{
+max-width:800px;
+margin:auto;
+line-height:1.8;
+color:#ddd;
+}
+
+.features{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+padding:50px 20px;
+max-width:1200px;
+margin:auto;
 }
 
 .card{
 background:#111;
-padding:20px;
+padding:30px;
 border-radius:15px;
-margin:auto;
-max-width:700px;
 border:1px solid #333;
 }
 
-h2{
+.card h3{
 color:#FFD700;
+margin-bottom:15px;
 }
 
 footer{
-text-align:center;
 padding:30px;
-color:#999;
+text-align:center;
+color:#888;
+border-top:1px solid #222;
 }
 </style>
 </head>
 
 <body>
 
-<div class="hero">
+<section class="hero">
+<div class="overlay"></div>
 
-<img src="d836d1c8ab0d697a13a76b490959aded.png">
+<div class="hero-content">
+<div class="logo">👑 Lalilies Den</div>
 
-<div class="logo">👑 LALILIES DEN</div>
+<h1>Join the Global Lisa Fan Community</h1>
 
-<div class="tagline">
-The Ultimate Lisa Fan Community
-</div>
+<p>
+Connect with Lilies worldwide, participate in fan projects,
+track streaming goals, unlock VIP experiences, and celebrate
+Lisa's achievements together.
+</p>
 
 <div class="buttons">
-<a class="btn" href="Signup.html">Sign Up</a>
-<a class="btn" href="Login.html">Login</a>
-</div>
-
-</div>
-
-<div class="section">
-<h2>Latest News</h2>
-
-<div class="card">
-Stay updated with Lisa's latest releases, performances,
-achievements and community projects.
+<a href="Signup.html" class="btn">Sign Up</a>
+<a href="Login.html" class="btn">Login</a>
 </div>
 </div>
+</section>
 
-<div class="section">
+<section class="section">
 <h2>About Lalilies Den</h2>
 
+<p>
+Lalilies Den is a fan-powered platform built for Lilies around
+the world. Join community discussions, support streaming goals,
+participate in projects, complete missions, and connect with
+fans globally.
+</p>
+</section>
+
+<section class="features">
+
 <div class="card">
-Join Lilies from around the world. Track streaming goals,
-participate in fan missions, unlock VIP experiences and connect
-with the global fandom.
+<h3>🌎 Global Community</h3>
+<p>Connect with Lilies worldwide through chats, projects, polls and events.</p>
 </div>
+
+<div class="card">
+<h3>📈 Streaming Hub</h3>
+<p>Track Spotify streams, chart achievements and fandom goals.</p>
 </div>
+
+<div class="card">
+<h3>🎵 Media Center</h3>
+<p>Access music, videos and exclusive fan galleries.</p>
+</div>
+
+<div class="card">
+<h3>💎 VIP Experience</h3>
+<p>Unlock premium fan experiences, rewards and special access.</p>
+</div>
+
+</section>
 
 <footer>
 👑 Lalilies Den © 2026
