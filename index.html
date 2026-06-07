@@ -3,477 +3,122 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Lalilies Den — The Ultimate Lisa Fan Hub</title>
+<title>Lalilies Den</title>
 
 <style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
-}
-
 body{
-background:#0a0a0a;
+margin:0;
+font-family:Arial,sans-serif;
+background:#000;
 color:white;
-}
-
-header{
-background:linear-gradient(90deg,#000,#1a1a1a,#000);
-padding:20px;
-position:sticky;
-top:0;
-z-index:1000;
-border-bottom:2px solid gold;
-}
-
-nav{
-display:flex;
-justify-content:space-between;
-align-items:center;
-}
-
-.logo{
-font-size:24px;
-font-weight:bold;
-color:gold;
-}
-
-.menu a{
-color:white;
-text-decoration:none;
-margin-left:15px;
 }
 
 .hero{
-height:90vh;
-background:url('https://images.unsplash.com/photo-1516280440614-37939bbacd81?q=80&w=1600') center/cover;
-display:flex;
-align-items:center;
-justify-content:center;
 text-align:center;
-position:relative;
 }
 
-.hero::before{
-content:'';
-position:absolute;
-top:0;
-left:0;
-right:0;
-bottom:0;
-background:rgba(0,0,0,0.65);
+.hero img{
+width:100%;
+max-height:500px;
+object-fit:cover;
 }
 
-.hero-content{
-position:relative;
-z-index:2;
-padding:20px;
+.logo{
+font-size:40px;
+font-weight:bold;
+color:#FFD700;
+margin-top:20px;
 }
 
-.hero h1{
-font-size:42px;
-color:gold;
-margin-bottom:15px;
-}
-
-.hero p{
+.tagline{
 font-size:18px;
-margin-bottom:25px;
+color:#ddd;
+padding:10px 20px;
+}
+
+.buttons{
+display:flex;
+justify-content:center;
+gap:15px;
+margin:30px 0;
 }
 
 .btn{
-    background:gold;
-    color:black;
-    padding:12px 24px;
-    border:none;
-    border-radius:8px;
-    font-weight:bold;
-    text-decoration:none;
-
-    display:block;
-    margin:10px auto;
-    width:80%;
+background:#FFD700;
+color:black;
+padding:14px 28px;
+text-decoration:none;
+border-radius:10px;
+font-weight:bold;
 }
 
 .section{
-padding:60px 20px;
+padding:30px;
 text-align:center;
 }
 
-.section h2{
-color:gold;
-margin-bottom:20px;
-font-size:30px;
-}
-
 .card{
-background:#151515;
+background:#111;
 padding:20px;
-margin:15px;
-border-radius:12px;
+border-radius:15px;
+margin:auto;
+max-width:700px;
 border:1px solid #333;
 }
 
+h2{
+color:#FFD700;
+}
+
+footer{
+text-align:center;
+padding:30px;
+color:#999;
+}
 </style>
 </head>
 
 <body>
 
-<header>
-<nav>
+<div class="hero">
 
-<div class="logo">
-👑 Lalilies Den
+<img src="d836d1c8ab0d697a13a76b490959aded.png">
+
+<div class="logo">👑 LALILIES DEN</div>
+
+<div class="tagline">
+The Ultimate Lisa Fan Community
 </div>
 
-<div class="menu">
-<a href="Login.html">Login</a>
-<a href="Signup.html">Sign Up</a>
-<a href="Dashboard.html">Dashboard</a>
+<div class="buttons">
+<a class="btn" href="Signup.html">Sign Up</a>
+<a class="btn" href="Login.html">Login</a>
 </div>
 
-</nav>
-</header>
+</div>
 
-<section class="hero">
+<div class="section">
+<h2>Latest News</h2>
 
 <div class="card">
-    <h2>🚀 Quick Access Dashboard</h2>
-    
-<div class="hero-content">
-
-<div class="card">
-    <h2>🚀 Quick Access Dashboard</h2>
-
-    <a href="News.html" class="btn">📰 News</a>
-    <a href="Music.html" class="btn">🎵 Music</a>
-    <a href="Events.html" class="btn">📅 Events</a>
-    <a href="Gallery.html" class="btn">📸 Gallery</a>
-    <a href="Community.html" class="btn">💬 Community</a>
-    <a href="FanMissions.html" class="btn">🏆 Missions</a>
-    <a href="Store.html" class="btn">🛒 Store</a>
-    <a href="Notifications.html" class="btn">🔔 Alerts</a>
-    <a href="Charts.html" class="btn">📊 Charts</a>
-    <a href="achievements.html" class="btn">🏅 Records</a>
-    <a href="VIP.html" class="btn">👑 VIP</a>
+Stay updated with Lisa's latest releases, performances,
+achievements and community projects.
 </div>
-    
-<div class="card">
-    <h2>🔥 What's New</h2>
-
-    <p>🎵 Latest Music Updates</p>
-    <p>📰 Breaking News</p>
-    <p>📅 Upcoming Events</p>
-    <p>🏆 New Achievements</p>
-    <p>💬 Community Highlights</p>
 </div>
 
-<div class="card">
-    <h2>📊 Fan Stats</h2>
-
-    <p>👥 Members: 12,500+</p>
-    <p>🎵 Streams Tracked: 950M+</p>
-    <p>🌍 Countries Reached: 120+</p>
-    <p>🏆 Fan Missions Completed: 8,700+</p>
-</div>
-
-<h1>Lalilies Den — The Ultimate Lisa Fan Hub</h1>
-
-<p>
-News, Music, Charts, Games, Community and VIP Experiences
-for every Lisa fan around the world.
-</p>
-
-<a href="Dashboard.html" class="btn">
-Enter Fan Hub
-</a>
-
-</div>
-
-</section>
-
-<section class="section">
-
-<h2>✨ Welcome</h2>
+<div class="section">
+<h2>About Lalilies Den</h2>
 
 <div class="card">
-<p>
-Welcome to Lalilies Den, your home for Lisa updates,
-streaming goals, fan activities, community discussions,
-VIP memberships and exclusive content.
-</p>
+Join Lilies from around the world. Track streaming goals,
+participate in fan missions, unlock VIP experiences and connect
+with the global fandom.
+</div>
 </div>
 
-</section>
-<section class="section">
-
-<h2>📰 Latest News</h2>
-
-<a href="News.html" style="text-decoration:none;color:white;">
-    <div class="card">
-        <h3>Lisa News Updates</h3>
-        <p>Stay updated with the latest announcements, performances and projects.</p>
-    </div>
-</a>
-
-<h2>📅 Event & Tour Tracker</h2>
-
-<div class="card">
-<p>Follow upcoming performances, events and countdowns.</p>
-<a href="Events.html" class="btn">Open Events</a>
-</div>
- 
-</section>
-
-<section class="section">
-
-<h2>🎵 Music Hub</h2>
-<div class="card">
-    <h3>Latest Releases</h3>
-
-    <iframe style="border-radius:12px"
-    src="https://open.spotify.com/embed/artist/5YGY8feqx7naU7z4HrwZM6"
-    width="100%"
-    height="352"
-    frameBorder="0"
-    allowfullscreen=""
-    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
-    </iframe>
-</div>
- <div class="card">
-    <h3>🍎 Apple Music Playlist</h3>
-
-    <iframe
-        allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write"
-        frameborder="0"
-        height="450"
-        style="width:100%;max-width:660px;overflow:hidden;border-radius:12px;"
-        sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation"
-        src="https://embed.music.apple.com/us/playlist/livin-la-vida-lalisa/pl.u-kv9lbKdCv980PV">
-    </iframe>
- </div>  
-    <div class="card">
-    <h3>🎧 Audiomack Album</h3>
-
-    <a href="https://audiomack.com/lisa-official/album/alter-ego-9204828?share-user-id=49617111"
-       target="_blank"
-       style="display:inline-block;
-              background:#f9a826;
-              color:black;
-              padding:12px 20px;
-              border-radius:10px;
-              text-decoration:none;
-              font-weight:bold;">
-       Open Alter Ego on Audiomack
-    </a>
-
-    <p>Stream Lisa's Alter Ego album on Audiomack.</p>
-    </div>
-    <div class="card">
-    <h3>🎵 Shazam Tracker</h3>
-
-    <p>
-        Track Lisa's Shazam rankings, trending songs,
-        chart positions and fan discoveries worldwide.
-    </p>
-
-    <a href="https://www.shazam.com"
-       target="_blank"
-       style="display:inline-block;
-              background:#0088ff;
-              color:white;
-              padding:12px 20px;
-              border-radius:10px;
-              text-decoration:none;
-              font-weight:bold;">
-       Open Shazam
-    </a>
-    </div>
-    <div class="card">
-    <h3>🛒 Amazon Music</h3>
-
-    <p>
-        Listen to Lisa's music on Amazon Music and
-        discover playlists, albums and exclusive releases.
-    </p>
-
-    <a href="https://music.amazon.com"
-       target="_blank"
-       style="display:inline-block;
-              background:#00A8E1;
-              color:white;
-              padding:12px 20px;
-              border-radius:10px;
-              text-decoration:none;
-              font-weight:bold;">
-       Open Amazon Music
-    </a>
-    </div>
-    <div class="card">
-    <h3>💿 iTunes Store</h3>
-
-    <p>
-        Purchase Lisa's songs, albums and exclusive releases
-        directly from the iTunes Store.
-    </p>
-
-    <a href="https://music.apple.com"
-       target="_blank"
-       style="display:inline-block;
-              background:#fa57c1;
-              color:white;
-              padding:12px 20px;
-              border-radius:10px;
-              text-decoration:none;
-              font-weight:bold;">
-       Open iTunes / Apple Music
-    </a>
-    </div>
-    <div class="card">
-    <h3>🎶 Deezer</h3>
-
-    <p>
-        Stream Lisa's music, playlists and top tracks on Deezer.
-    </p>
-
-    <a href="https://www.deezer.com"
-       target="_blank"
-       style="display:inline-block;
-              background:#a238ff;
-              color:white;
-              padding:12px 20px;
-              border-radius:10px;
-              text-decoration:none;
-              font-weight:bold;">
-       Open Deezer
-    </a>
-    </div>
-    
-</section>
-
-<section class="section">
-
-<h2>🎥 Videos</h2>
-
-<div class="card">
-    <h3>Music Videos & Performances</h3>
-
-    <iframe width="100%" height="220"
-        src="https://www.youtube.com/embed/awkkyBH2zEo"
-        title="Lisa Video"
-        frameborder="0"
-        allowfullscreen>
-    </iframe>
-
-</div>
-
-<h2>🎵 Music & Video Hub</h2>
-
-<div class="card">
-<p>Watch videos, stream music and follow releases.</p>
-<a href="Music.html" class="btn">Open Music Hub</a>
-</div>    
-    
-<h2>🏆 Fan Missions</h2>
-
-<div class="card">
-<p>Complete daily challenges, streaming goals and fandom missions.</p>
-<a href="FanMissions.html" class="btn">Open Missions</a>
-</div>
-    
-</section>
-
-<section class="section">
-
-<h2>📸 Photo Gallery</h2>
-
-<div class="card">
-<p>Exclusive photos, fan moments and event highlights.</p>
-<a href="Gallery.html" class="btn">Open Gallery</a>
-</div>
-
-<h2>💬 Fan Community</h2>
-
-<div class="card">
-<p>Join discussions with Lalilies around the world.</p>
-<a href="Community.html" class="btn">Open Community</a>
-</div>
- 
-</section>
-<section class="section">
-
-<h2>📈 Charts & Streams</h2>
-
-<div class="card">
-<h3>Streaming Tracker</h3>
-<p>Monitor Spotify streams, YouTube views and chart milestones.</p>
-<a href="Charts.html" class="btn">Open Charts</a>
-</div>
-
-</section>
-
-<section class="section">
-
-<h2>🎮 Gaming Hub</h2>
-
-<div class="card">
-<h3>Fan Challenges</h3>
-<p>Play quizzes, earn points and compete with other fans.</p>
-</div>
-
-<h2>🔔 Notifications Center</h2>
-
-<div class="card">
-<p>Stay updated with news, music releases, events and achievements.</p>
-<a href="Notifications.html" class="btn">Open Notifications</a>
-</div>
-    
-</section>
-
-<section class="section">
-
-<h2>💬 Community</h2>
-
-<div class="card">
-<h3>Join The Conversation</h3>
-<p>Discuss Lisa's music, performances and upcoming projects with fans.</p>
-</div>
-    
-<h2>🛒 Merchandise Store</h2>
-
-<div class="card">
-<p>Browse albums, photocards, hoodies and fan merchandise.</p>
-<a href="Store.html" class="btn">Open Store</a>
-</div>
-    
-</section>
-
-<section class="section">
-
-<h2>💎 VIP Membership</h2>
-
-<div class="card">
-<h3>Exclusive Benefits</h3>
-<p>Access VIP events, rewards and premium fan experiences.</p>
-<a href="VIP.html" class="btn">Open VIP</a>
-</div>
-
-</section>
-
-<footer style="background:#000;padding:30px;text-align:center;border-top:2px solid gold;">
-
-<h3 style="color:gold;">👑 Lalilies Den</h3>
-
-<p>The Ultimate Lisa Fan Hub</p>
-
-<p style="margin-top:10px;">
-© 2026 Lalilies Den. All Rights Reserved.
-</p>
-
+<footer>
+👑 Lalilies Den © 2026
 </footer>
 
 </body>
-  </html>
+</html>
