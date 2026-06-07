@@ -34,17 +34,45 @@ button{
 <div class="card">
 <h1>💛 Sign Up 💛</h1>
 
-<input type="text" placeholder="Username">
-
-<input type="email" placeholder="Email">
-
-<input type="password" placeholder="Password">
+<input type="text" id="username" placeholder="Username">
+<input type="email" id="email" placeholder="Email">
+<input type="password" id="password" placeholder="Password">
 
 <br><br>
 
-<a href="dashboard.html"><button>Create Account</button></a>
+<button onclick="signUp()">Create Account</button>
 
 </div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
+  <script>
+const supabaseUrl = "https://nsyhconcqsqueydhhheu.supabase.co";
+
+    const supabaseKey = "sb_publishable_fFIEmCXZdk20izLCpWV7bg_ijCj0sHQ";  
+
+    const supabase = window.supabase.createClient(
+  supabaseUrl,
+  supabaseKey
+);
+
+async function signUp() {
+
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+
+  const { data, error } = await supabase.auth.signUp({
+    email,
+    password
+  });
+
+  if(error){
+    alert(error.message);
+  } else {
+    alert("Account created successfully! Check your email.");
+    window.location.href = "Login.html";
+  }
+}
+</script>
+  
 </body>
 </html>
