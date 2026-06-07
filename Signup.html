@@ -73,7 +73,7 @@ a{
 
 <input type="password" id="confirmPassword" placeholder="Confirm Password">
 
-<button onclick="location.href='AccessCode.html'">
+<button onclick="signUp()">
 Create Account
 </button>
 
@@ -84,5 +84,45 @@ Already have an account?
 
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+
+<script>
+const supabaseUrl = "https://nsyhconcqsqueydhhheu.supabase.co";
+const supabaseKey = "sb_publishable_fFIEmCXZdk20izLCpWV7bg_ijCj0sHQ";
+
+const supabase = window.supabase.createClient(
+supabaseUrl,
+supabaseKey
+);
+
+async function signUp(){
+
+const email = document.getElementById("email").value;
+const password = document.getElementById("password").value;
+const confirmPassword =
+document.getElementById("confirmPassword").value;
+
+if(password !== confirmPassword){
+alert("Passwords do not match");
+return;
+}
+
+const { error } = await supabase.auth.signUp({
+email: email,
+password: password
+});
+
+if(error){
+alert(error.message);
+return;
+}
+
+alert("Account created successfully!");
+
+location.href = "AccessCode.html";
+
+}
+</script>
+    
 </body>
 </html>
