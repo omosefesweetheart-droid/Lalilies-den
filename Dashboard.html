@@ -1,74 +1,115 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Lalilies Den Dashboard</title>
+
 <style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
 body{
-  font-family:Arial,sans-serif;
-  background:#fff8dc;
-  margin:0;
+background:#000;
+color:white;
+min-height:100vh;
+padding-bottom:80px;
 }
 
-header{
-  background:#ffcc00;
-  padding:20px;
-  text-align:center;
+.header{
+background:#111;
+padding:20px;
+text-align:center;
+border-bottom:1px solid #333;
 }
 
-.card{
-  background:white;
-  margin:15px;
-  padding:15px;
-  border-radius:10px;
+.header h1{
+color:#FFD700;
+font-size:28px;
 }
 
-button{
-  background:#ffcc00;
-  border:none;
-  padding:10px 20px;
-  border-radius:5px;
+.welcome{
+padding:25px;
+text-align:center;
+}
+
+.welcome h2{
+color:#FFD700;
+margin-bottom:10px;
+}
+
+.announcement{
+margin:20px;
+background:#111;
+padding:20px;
+border-radius:15px;
+border:1px solid #333;
+}
+
+.announcement h3{
+color:#FFD700;
+margin-bottom:10px;
+}
+
+.bottom-nav{
+position:fixed;
+bottom:0;
+left:0;
+width:100%;
+background:#111;
+border-top:1px solid #333;
+display:flex;
+justify-content:space-around;
+padding:15px 0;
+}
+
+.bottom-nav a{
+color:#FFD700;
+text-decoration:none;
+font-size:14px;
+font-weight:bold;
+text-align:center;
+}
+
+.bottom-nav a:hover{
+color:white;
 }
 </style>
 </head>
 
 <body>
 
-<header>
-<h1>💛 Lalilies Den Dashboard 💛</h1>
-<p>Welcome Back, Fan!</p>
-</header>
-
-<div class="card">
-<h2>👤 Profile</h2>
-<p>Manage your fan profile.</p>
-<a href="Profile.html"><button>Open Profile</button></a>
-</div>
-<h2>📰 News Feed</h2>
-<p>Latest Lisa updates and announcements.</p>
+<div class="header">
+<h1>👑 Lalilies Den</h1>
 </div>
 
-<div class="card">
-<h2>📈 Charts & Streams</h2>
-<p>Track streaming milestones and chart rankings.</p>
-<a href="Charts.html"><button>Open Charts</button></a>
+<div class="welcome">
+<h2>Welcome Back, Lily 🌸</h2>
 </div>
 
-<div class="card">
-<h2>🎮 Gaming Hub</h2>
-<p>Play quizzes, games and challenges.</p>
+<div class="announcement">
+<h3>📢 Latest Announcement</h3>
+
+<p>
+Welcome to Lalilies Den.
+
+Complete your profile, connect with Lilies around the world,
+join community activities, and stay updated on the latest
+announcements and fan projects.
+</p>
 </div>
 
-<div class="card">
-<h2>🗳️ Voting Center</h2>
-<p>Vote in fan polls and events.</p>
-</div>
-
-
-<div class="card">
-<h2>👑 VIP</h2>
-<p>Access exclusive membership benefits.</p>
-<a href="VIP.html"><button>Open VIP</button></a>
+<div class="bottom-nav">
+<a href="#">💬<br>Community</a>
+<a href="#">🎵<br>Media</a>
+<a href="#">📈<br>Streams</a>
+<a href="#">🔔<br>Notifications</a>
+<a href="#">👤<br>Profile</a>
 </div>
 
 </body>
-  </html>
+</html>
