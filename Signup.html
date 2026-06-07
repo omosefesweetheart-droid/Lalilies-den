@@ -64,13 +64,19 @@ async function signUp() {
     password
   });
 
-  if(error){
-    alert(error.message);
-  } else {
-    alert("Account created successfully! Check your email.");
-    window.location.href = "Login.html";
-  }
-}
+ alert("signUp function started");
+
+const { data, error } = await supabase.auth.signUp({
+  email,
+  password
+});
+
+if(error){
+  alert("ERROR: " + error.message);
+} else {
+  alert("SUCCESS");
+} 
+
 </script>
   
 </body>
