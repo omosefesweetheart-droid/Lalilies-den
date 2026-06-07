@@ -1,85 +1,86 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Sign Up - Lalilies Den</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Create Account</title>
 
 <style>
 body{
-  font-family: Arial, sans-serif;
-  background: #fff8dc;
-  text-align: center;
-  padding: 50px;
+    margin:0;
+    background:#000;
+    color:white;
+    font-family:Arial,sans-serif;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
 }
 
-.card{
-  background: white;
-  max-width: 350px;
-  margin: auto;
-  padding: 20px;
-  border-radius: 10px;
+.container{
+    width:90%;
+    max-width:400px;
+}
+
+h1{
+    text-align:center;
+    color:#FFD700;
 }
 
 input{
-  width: 90%;
-  padding: 10px;
-  margin: 10px 0;
+    width:100%;
+    padding:15px;
+    margin:10px 0;
+    border:none;
+    border-radius:10px;
+    font-size:16px;
 }
 
 button{
-  background: #ffcc00;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
+    width:100%;
+    padding:15px;
+    background:#FFD700;
+    color:black;
+    border:none;
+    border-radius:10px;
+    font-size:18px;
+    font-weight:bold;
+    margin-top:15px;
+}
+
+p{
+    text-align:center;
+}
+
+a{
+    color:#FFD700;
+    text-decoration:none;
 }
 </style>
 </head>
 
 <body>
 
-<div class="card">
-  <h1>💛 Sign Up 💛</h1>
+<div class="container">
 
-  <input type="text" id="username" placeholder="Username">
-  <input type="email" id="email" placeholder="Email">
-  <input type="password" id="password" placeholder="Password">
+<h1>Create Account</h1>
 
-  <br><br>
+<input type="text" placeholder="Username">
 
-  <button onclick="signUp()">Create Account</button>
+<input type="email" placeholder="Email Address">
+
+<input type="password" placeholder="Password">
+
+<input type="password" placeholder="Confirm Password">
+
+<button>Create Account</button>
+
+<p>
+Already have an account?
+<a href="Login.html">Login</a>
+</p>
 
 </div>
-
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-<script>
-const supabaseUrl = "https://nsyhconcqsqueydhhheu.supabase.co";
-
-const supabaseKey = "sb_publishable_fFIEmCXZdk20izLCpWV7bg_ijCj0sHQ";
-
-const supabase = window.supabase.createClient(
-  supabaseUrl,
-  supabaseKey
-);
-
-async function signUp() {
-
-  alert("SIGNUP STARTED");
-
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
-
-  const { data, error } = await supabase.auth.signUp({
-    email: email,
-    password: password
-  });
-
-  if (error) {
-    alert("ERROR: " + error.message);
-  } else {
-    alert("SUCCESS! Account created.");
-  }
-}
-</script>
 
 </body>
 </html>
