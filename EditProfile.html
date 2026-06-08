@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Edit Profile</title>
 
 <style>
@@ -27,6 +26,7 @@ margin:10px 0;
 border:none;
 border-radius:10px;
 font-size:16px;
+box-sizing:border-box;
 }
 
 button{
@@ -47,17 +47,70 @@ margin-top:15px;
 
 <h1>✏️ Edit Profile</h1>
 
-<input type="text" placeholder="Display Name">
+<input type="text" id="display_name" placeholder="Display Name">
 
-<input type="text" placeholder="Country">
+<input type="text" id="country" placeholder="Country">
 
-<input type="text" placeholder="Favorite Lisa Song">
+<input type="text" id="favorite_song" placeholder="Favorite Lisa Song">
 
 <input type="file">
 
-<button onclick="location.href='Profile.html'">
+<button id="saveBtn">
 Save Profile
 </button>
+
+<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+
+<script>
+
+const supabaseUrl = "https://nsyhconcqsqueydhhheu.supabase.co";
+
+const supabaseKey = "sb_publishable_fFIEmCXZdk20izLCpWV7bg_ijCj0sHQ";
+
+const { createClient } = supabase;
+
+const client = createClient(
+supabaseUrl,
+supabaseKey
+);
+
+document.getElementById("saveBtn")
+.addEventListener("click", async () => {
+
+const {
+data: { user }
+} = await client.auth.getUser();
+
+const display_name =
+document.getElementById("display_name").value;
+
+const country =
+document.getElementById("country").value;
+
+const favorite_song =
+document.getElementById("favorite_song").value;
+
+const { error } = await client
+.from("profiles")
+.upsert({
+user_id: user.id,
+display_name,
+country,
+favorite_song
+});
+
+if(error){
+alert(error.message);
+return;
+}
+
+alert("Profile Saved!");
+
+window.location.href = "Profile.html";
+
+});
+
+</script>
 
 </body>
 </html>
