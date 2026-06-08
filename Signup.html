@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,7 +33,7 @@ input{
     margin:10px 0;
     border:none;
     border-radius:10px;
-    font-size:16px;
+    box-sizing:border-box;
 }
 
 button{
@@ -45,7 +45,7 @@ button{
     border-radius:10px;
     font-size:18px;
     font-weight:bold;
-    margin-top:15px;
+    cursor:pointer;
 }
 
 p{
@@ -72,10 +72,8 @@ a{
 <input type="password" id="password" placeholder="Password">
 
 <input type="password" id="confirmPassword" placeholder="Confirm Password">
-    
-<button onclick="signUp()">
-Create Account
-</button>
+
+<button id="signupBtn">Create Account</button>
 
 <p>
 Already have an account?
@@ -87,31 +85,29 @@ Already have an account?
 <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
 
 <script>
+
 const supabaseUrl = "https://nsyhconcqsqueydhhheu.supabase.co";
 const supabaseKey = "sb_publishable_fFIEmCXZdk20izLCpWV7bg_ijCj0sHQ";
 
-const supabase = window.supabase.createClient(
-supabaseUrl,
-supabaseKey
-);
+const { createClient } = supabase;
+const client = createClient(supabaseUrl, supabaseKey);
 
-async function signUp(){
+document.getElementById("signupBtn").addEventListener("click", async () => {
 
-alert("signUp function started");
-    
-const email = document.getElementById("email").value;
+alert("Button clicked");
+
+const email = document.getElementById("email").value.trim();
 const password = document.getElementById("password").value;
-const confirmPassword =
-document.getElementById("confirmPassword").value;
+const confirmPassword = document.getElementById("confirmPassword").value;
 
 if(password !== confirmPassword){
 alert("Passwords do not match");
 return;
 }
 
-const { error } = await supabase.auth.signUp({
-email: email,
-password: password
+const { error } = await client.auth.signUp({
+email,
+password
 });
 
 if(error){
@@ -120,10 +116,11 @@ return;
 }
 
 alert("Account created successfully!");
-location.href = "AccessCode.html";
+window.location.href = "AccessCode.html";
 
-}
+});
+
 </script>
-    
+
 </body>
 </html>
