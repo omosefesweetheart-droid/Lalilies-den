@@ -91,7 +91,7 @@ const favorite_song =
 document.getElementById("favorite_song").value;
 
 const { error } = await client
-.from("profiles")
+.from("Profiles")
 .upsert({
 user_id: user.id,
 display_name,
