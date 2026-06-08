@@ -79,17 +79,17 @@ color:#FFD700;
 
 <div class="card">
 <div class="title">Display Name</div>
-Not Set Yet
+<div id="display_name">Loading...</div>
 </div>
 
 <div class="card">
 <div class="title">Country</div>
-Not Set Yet
+<div id="country">Loading...</div>
 </div>
 
 <div class="card">
 <div class="title">Favorite Lisa Song</div>
-Not Set Yet
+<div id="favorite_song">Loading...</div>
 </div>
 
 <div class="card">
@@ -107,5 +107,43 @@ Not Activated
 🚪 Logout
 </a>
 
+<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+
+<script>
+const supabaseUrl = "https://nsyhconcqsqueydhhheu.supabase.co";
+const supabaseKey = "sb_publishable_fFIEmCXZdk20izLCpWV7bg_ijCj0sHQ";
+
+const { createClient } = supabase;
+const client = createClient(supabaseUrl, supabaseKey);
+
+async function loadProfile() {
+
+const {
+data: { user }
+} = await client.auth.getUser();
+
+if (!user) return;
+
+const { data, error } = await client
+.from("Profiles")
+.select("*")
+.eq("user_id", user.id)
+.single();
+
+if(error) return;
+
+document.getElementById("display_name").textContent =
+data.display_name || "Not Set Yet";
+
+document.getElementById("country").textContent =
+data.country || "Not Set Yet";
+
+document.getElementById("favorite_song").textContent =
+data.favorite_song || "Not Set Yet";
+}
+
+loadProfile();
+</script>
+  
 </body>
 </html>
