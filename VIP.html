@@ -1,78 +1,117 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>VIP Membership - Lalilies Den</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VIP Membership</title>
 
 <style>
 body{
-  font-family:Arial,sans-serif;
-  background:#fff8dc;
-  padding:20px;
-}
-
-.card{
-  background:white;
-  padding:20px;
-  border-radius:10px;
-  max-width:600px;
-  margin:auto;
-  box-shadow:0 0 10px rgba(0,0,0,0.1);
+background:#000;
+color:white;
+font-family:Arial,sans-serif;
+margin:0;
+padding:20px;
 }
 
 h1{
-  text-align:center;
+text-align:center;
+color:#FFD700;
 }
 
-.plan{
-  border:1px solid #ddd;
-  padding:15px;
-  margin:15px 0;
-  border-radius:10px;
+.vip-card{
+background:#111;
+border:2px solid #FFD700;
+border-radius:15px;
+padding:20px;
+margin-top:20px;
+}
+
+.price{
+font-size:32px;
+font-weight:bold;
+color:#FFD700;
+text-align:center;
+margin:20px 0;
+}
+
+ul{
+line-height:2;
 }
 
 button{
-  background:#ffcc00;
-  border:none;
-  padding:10px 20px;
-  border-radius:5px;
+width:100%;
+padding:15px;
+background:#FFD700;
+color:black;
+font-size:18px;
+font-weight:bold;
+border:none;
+border-radius:10px;
+margin-top:20px;
+}
+
+.status{
+background:#111;
+padding:15px;
+border-radius:10px;
+margin-top:20px;
+text-align:center;
+}
+
+.back-btn{
+display:block;
+text-align:center;
+background:#FFD700;
+color:black;
+text-decoration:none;
+padding:15px;
+border-radius:10px;
+margin-top:20px;
+font-weight:bold;
 }
 </style>
-
 </head>
 
 <body>
 
-<div class="card">
+<h1>💎 VIP Membership</h1>
 
-<h1>👑 VIP Membership 👑</h1>
-
-<p>Unlock exclusive Lalilies Den fan benefits.</p>
-
-<div class="plan">
-<h2>🌟 Silver VIP</h2>
-<p>Exclusive posts and fan badges.</p>
-<button>Join Silver</button>
+<div class="status">
+VIP Status:
+<span id="vip_status">
+Not Activated
+</span>
 </div>
 
-<div class="plan">
-<h2>💎 Gold VIP</h2>
-<p>Early content access and special rewards.</p>
-<button>Join Gold</button>
+<div class="vip-card">
+
+<div class="price">
+₦3,000 / 30 Days
 </div>
 
-<div class="plan">
-<h2>🔥 Platinum VIP</h2>
-<p>Premium community access and exclusive events.</p>
-<button>Join Platinum</button>
+<h3>VIP Benefits</h3>
+
+<ul>
+<li>💎 VIP Lounge Access</li>
+<li>💎 Exclusive Photos</li>
+<li>💎 Exclusive Videos</li>
+<li>💎 VIP Badge</li>
+<li>💎 VIP Profile Frame</li>
+<li>💎 VIP Polls</li>
+<li>💎 Monthly Digital Rewards</li>
+<li>💎 Announcements 5 Hours Early</li>
+</ul>
+
+<button id="vipBtn">
+💎 Become VIP
+</button>
+
 </div>
 
-<br>
-
-<a href="Dashboard.html">
-<button>⬅ Back to Dashboard</button>
+<a href="Profile.html" class="back-btn">
+← Back To Profile
 </a>
-
-</div>
 
 </body>
 </html>
