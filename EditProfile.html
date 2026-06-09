@@ -53,7 +53,7 @@ margin-top:15px;
 
 <input type="text" id="favorite_song" placeholder="Favorite Lisa Song">
 
-<input type="file">
+<input type="file" id="avatar" accept="image/*">
 
 <button id="saveBtn">
 Save Profile
@@ -64,22 +64,21 @@ Save Profile
 <script>
 
 const supabaseUrl = "https://nsyhconcqsqueydhhheu.supabase.co";
-
 const supabaseKey = "sb_publishable_fFIEmCXZdk20izLCpWV7bg_ijCj0sHQ";
 
 const { createClient } = supabase;
+const client = createClient(supabaseUrl, supabaseKey);
 
-const client = createClient(
-supabaseUrl,
-supabaseKey
-);
-
-document.getElementById("saveBtn")
-.addEventListener("click", async () => {
+document.getElementById("saveBtn").addEventListener("click", async () => {
 
 const {
 data: { user }
 } = await client.auth.getUser();
+
+if(!user){
+alert("Please login first");
+return;
+}
 
 const display_name =
 document.getElementById("display_name").value;
@@ -90,14 +89,47 @@ document.getElementById("country").value;
 const favorite_song =
 document.getElementById("favorite_song").value;
 
-const { error } = await client
-.from('Profiles')
-.upsert({
+const avatarFile =
+document.getElementById("avatar").files[0];
+
+let avatar_url = null;
+
+if(avatarFile){
+
+const fileName = `${user.id}-${Date.now()}`;
+
+const { error: uploadError } =
+await client.storage
+.from("avatars")
+.upload(fileName, avatarFile);
+
+if(uploadError){
+alert(uploadError.message);
+return;
+}
+
+const { data } =
+client.storage
+.from("avatars")
+.getPublicUrl(fileName);
+
+avatar_url = data.publicUrl;
+}
+
+const profileData = {
 user_id: user.id,
 display_name,
 country,
 favorite_song
-});
+};
+
+if(avatar_url){
+profileData.avatar_url = avatar_url;
+}
+
+const { error } = await client
+.from("Profiles")
+.upsert(profileData);
 
 if(error){
 alert("ERROR: " + error.message);
@@ -105,7 +137,6 @@ return;
 }
 
 alert("Profile Saved Successfully!");
-
 window.location.href = "Profile.html";
 
 });
