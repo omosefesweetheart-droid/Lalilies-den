@@ -115,6 +115,8 @@ Not Activated
 
 <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
 
+<script src="https://js.paystack.co/v1/inline.js"></script>
+
 <script>
 
 const supabaseUrl =
@@ -123,7 +125,8 @@ const supabaseUrl =
 const supabaseKey =
 "sb_publishable_fFIEmCXZdk20izLCpWV7bg_ijCj0sHQ";
 
-<script>
+const { createClient } = supabase;
+const client = createClient(supabaseUrl, supabaseKey);
 
 document.getElementById("vipBtn").addEventListener("click", async () => {
 
@@ -142,30 +145,17 @@ email: user.email,
 amount: 300000,
 
 callback: function(response){
-
-alert(
-"Payment successful! Reference: " +
-response.reference
-);
-
+alert("Payment successful!");
 },
 
 onClose: function(){
 alert("Payment cancelled");
 }
-
 });
 
 handler.openIframe();
 
 });
-
-</script>
-  
-const { createClient } = supabase;
-
-const client =
-createClient(supabaseUrl, supabaseKey);
 
 async function checkVIP() {
 
@@ -182,22 +172,16 @@ const { data } = await client
 .maybeSingle();
 
 if(data){
-
-document.getElementById("vip_status")
-.textContent = "💎 Active";
-
+document.getElementById("vip_status").textContent = "💎 Active";
 }else{
-
-document.getElementById("vip_status")
-.textContent = "Not Activated";
-
+document.getElementById("vip_status").textContent = "Not Activated";
 }
 
 }
 
 checkVIP();
 
-<script src="https://js.paystack.co/v1/inline.js"></script>
+</script>
   
 </body>
 </html>
