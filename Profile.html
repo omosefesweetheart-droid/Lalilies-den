@@ -29,10 +29,9 @@ height:120px;
 border-radius:50%;
 background:#222;
 margin:20px auto;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:50px;
+display:block;
+object-fit:cover;
+border:3px solid #FFD700;
 }
 
 .card{
@@ -73,9 +72,11 @@ color:#FFD700;
 <h1>👤 My Profile</h1>
 </div>
 
-<div class="profile-pic">
-👤
-</div>
+<img
+id="avatar"
+class="profile-pic"
+src="https://via.placeholder.com/120"
+alt="Profile Picture">
 
 <div class="card">
 <div class="title">Display Name</div>
@@ -97,7 +98,9 @@ color:#FFD700;
 Not Activated
 </div>
 
-<a href="EditProfile.html" class="menu-btn">⚙️ Edit Profile</a>
+<a href="EditProfile.html" class="menu-btn">
+⚙️ Edit Profile
+</a>
 
 <a href="Dashboard.html" class="menu-btn">
 ← Back to Dashboard
@@ -110,11 +113,17 @@ Not Activated
 <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
 
 <script>
-const supabaseUrl = "https://nsyhconcqsqueydhhheu.supabase.co";
-const supabaseKey = "sb_publishable_fFIEmCXZdk20izLCpWV7bg_ijCj0sHQ";
+
+const supabaseUrl =
+"https://nsyhconcqsqueydhhheu.supabase.co";
+
+const supabaseKey =
+"sb_publishable_fFIEmCXZdk20izLCpWV7bg_ijCj0sHQ";
 
 const { createClient } = supabase;
-const client = createClient(supabaseUrl, supabaseKey);
+
+const client =
+createClient(supabaseUrl, supabaseKey);
 
 async function loadProfile() {
 
@@ -130,9 +139,6 @@ const { data, error } = await client
 .eq("user_id", user.id)
 .maybeSingle();
 
-console.log(data);
-console.log(error);
-
 if(error){
 alert(error.message);
 return;
@@ -146,10 +152,17 @@ data.country || "Not Set Yet";
 
 document.getElementById("favorite_song").textContent =
 data.favorite_song || "Not Set Yet";
+
+if(data.avatar_url){
+document.getElementById("avatar").src =
+data.avatar_url;
+}
+
 }
 
 loadProfile();
+
 </script>
-  
+
 </body>
 </html>
