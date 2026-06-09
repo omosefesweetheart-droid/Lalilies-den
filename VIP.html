@@ -123,6 +123,45 @@ const supabaseUrl =
 const supabaseKey =
 "sb_publishable_fFIEmCXZdk20izLCpWV7bg_ijCj0sHQ";
 
+<script>
+
+document.getElementById("vipBtn").addEventListener("click", async () => {
+
+const {
+data: { user }
+} = await client.auth.getUser();
+
+if (!user) {
+alert("Please login first");
+return;
+}
+
+let handler = PaystackPop.setup({
+key: "pk_live_42ad7a6d90ab234d75c876e0e12e8d44e583e5d5",
+email: user.email,
+amount: 300000,
+
+callback: function(response){
+
+alert(
+"Payment successful! Reference: " +
+response.reference
+);
+
+},
+
+onClose: function(){
+alert("Payment cancelled");
+}
+
+});
+
+handler.openIframe();
+
+});
+
+</script>
+  
 const { createClient } = supabase;
 
 const client =
@@ -159,6 +198,8 @@ document.getElementById("vip_status")
 checkVIP();
 
 </script>
+
+<script src="https://js.paystack.co/v1/inline.js"></script>
   
 </body>
 </html>
