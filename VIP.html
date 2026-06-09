@@ -113,5 +113,52 @@ Not Activated
 ← Back To Profile
 </a>
 
+<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+
+<script>
+
+const supabaseUrl =
+"https://nsyhconcqsqueydhhheu.supabase.co";
+
+const supabaseKey =
+"sb_publishable_fFIEmCXZdk20izLCpWV7bg_ijCj0sHQ";
+
+const { createClient } = supabase;
+
+const client =
+createClient(supabaseUrl, supabaseKey);
+
+async function checkVIP() {
+
+const {
+data: { user }
+} = await client.auth.getUser();
+
+if(!user) return;
+
+const { data } = await client
+.from("vip_members")
+.select("*")
+.eq("user_id", user.id)
+.maybeSingle();
+
+if(data){
+
+document.getElementById("vip_status")
+.textContent = "💎 Active";
+
+}else{
+
+document.getElementById("vip_status")
+.textContent = "Not Activated";
+
+}
+
+}
+
+checkVIP();
+
+</script>
+  
 </body>
 </html>
