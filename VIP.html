@@ -130,6 +130,8 @@ const client = createClient(supabaseUrl, supabaseKey);
 
 document.getElementById("vipBtn").addEventListener("click", async () => {
 
+alert("Button clicked");
+
 const {
 data: { user }
 } = await client.auth.getUser();
