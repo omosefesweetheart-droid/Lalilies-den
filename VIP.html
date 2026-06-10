@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+j<!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -150,7 +150,13 @@ async function checkVIP() {
 
 checkVIP();
 
-document.getElementById("vipBtn").onclick = async function(){
+document.getElementById("vipBtn").onclick = function(){
+
+  alert("Button clicked");
+
+  alert("PaystackPop type: " + typeof PaystackPop);
+
+};
 
   const {
     data: { user }
