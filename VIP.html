@@ -168,15 +168,7 @@ alert("User email: " + (user ? user.email : "NO USER"));
   
   alert("PaystackPop type: " + typeof PaystackPop);
 
-  alert("Before setup");
-
-alert("Before Paystack setup");
-
-const handler = PaystackPop.setup({
-  ...
-});
-
-alert("Before Paystack setup");
+  alert("Before Paystack setup");
 
 const handler = PaystackPop.setup({
 
@@ -217,46 +209,6 @@ const handler = PaystackPop.setup({
 });
 
 alert("After Paystack setup");
-
-handler.openIframe();
-
-alert("After openIframe");
- 
-key: "pk_live_42ad7a6d90ab234d75c876e0e12e8d44e583e5d5",
- 
-  email: user.email,
-  amount: 10000,
-
-  callback: async function(response){
-
-  const expiryDate = new Date();
-  expiryDate.setDate(expiryDate.getDate() + 30);
-
-  const { error } = await client
-    .from("vip_members")
-    .insert([{
-      user_id: user.id,
-      payment_reference: response.reference,
-      status: "active",
-      plan: "monthly",
-      expires_at: expiryDate.toISOString()
-    }]);
-
-  if(error){
-    alert("Database Error: " + error.message);
-    return;
-  }
-
-  alert("VIP Activated Successfully!");
-  location.reload();
-}
-
-  onClose: function(){
-    alert("Payment cancelled");
-  }
-});
-
-alert("After setup");
 
 handler.openIframe();
 
