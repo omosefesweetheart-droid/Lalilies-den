@@ -150,6 +150,8 @@ checkVIP();
 
 document.getElementById("vipBtn").onclick = async function(){
 
+alert("VIP button clicked");
+  
   const {
     data: { user }
   } = await client.auth.getUser();
