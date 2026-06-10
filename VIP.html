@@ -199,9 +199,15 @@ document.getElementById("vipBtn").onclick = async function(){
 
   });
 
-alert("Handler created successfully");
-  
+  alert("Handler created successfully");
+ 
+  try {
+  alert("About to open Paystack");
   handler.openIframe();
+  alert("openIframe finished");
+} catch(err) {
+  alert("OPEN ERROR: " + err.message);
+    }
   
 };
 
