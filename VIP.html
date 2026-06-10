@@ -150,78 +150,57 @@ checkVIP();
 
 document.getElementById("vipBtn").onclick = async function(){
 
-alert("VIP button clicked");
-  alert("Getting user...");
-
-const {
-  data: { user }
-} = await client.auth.getUser();
-
-alert("User check finished");
+  const {
+    data: { user }
+  } = await client.auth.getUser();
 
   if(!user){
     alert("Please login first");
     return;
   }
 
-alert("User email: " + (user ? user.email : "NO USER"));
-  
-  alert("PaystackPop type: " + typeof PaystackPop);
+  const handler = PaystackPop.setup({
 
-  alert("Before Paystack setup");
+    key: "pk_live_42ad7a6d90ab234d75c876e0e12e8d44e583e5d5",
 
-try {
+    email: user.email,
 
-const handler = PaystackPop.setup({
+    amount: 10000,
 
-  key: "pk_live_42ad7a6d90ab234d75c876e0e12e8d44e583e5d5",
+    callback: async function(response) {
 
-  email: user.email,
+      alert("Payment success");
 
-  amount: 10000,
+      const expiryDate = new Date();
+      expiryDate.setDate(expiryDate.getDate() + 30);
 
-  callback: async function(response){
+      const { error } = await client
+        .from("vip_members")
+        .insert([{
+          user_id: user.id,
+          payment_reference: response.reference,
+          status: "active",
+          plan: "monthly",
+          expires_at: expiryDate.toISOString()
+        }]);
 
-    const expiryDate = new Date();
-    expiryDate.setDate(expiryDate.getDate() + 30);
+      if(error){
+        alert("Database Error: " + error.message);
+        return;
+      }
 
-    const { error } = await client
-      .from("vip_members")
-      .insert([{
-        user_id: user.id,
-        payment_reference: response.reference,
-        status: "active",
-        plan: "monthly",
-        expires_at: expiryDate.toISOString()
-      }]);
+      alert("VIP Activated Successfully!");
+      location.reload();
+    },
 
-    if(error){
-      alert("Database Error: " + error.message);
-      return;
+    onClose: function() {
+      alert("Payment cancelled");
     }
 
-    alert("VIP Activated Successfully!");
-    location.reload();
-  },
+  });
 
-  onClose: function(){
-    alert("Payment cancelled");
-  }
-
-});
-
-alert("After Paystack setup");
-
-handler.openIframe();
-
-alert("After openIframe");
-
-} catch(err) {
-
-  alert("ERROR: " + err.message);
-
-}
-
+  handler.openIframe();
+  
 };
 
 </script>
