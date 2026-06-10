@@ -168,84 +168,29 @@ alert("User email: " + (user ? user.email : "NO USER"));
   
   alert("PaystackPop type: " + typeof PaystackPop);
 
+  alert("Before setup");
+
 const handler = PaystackPop.setup({
+ 
+key: "pk_live_42ad7a6d90ab234d75c876e0e12e8d44e583e5d5",
+ 
+  email: user.email,
+  amount: 300000,
 
-    key: "pk_live_42ad7a6d90ab234d75c876e0e12e8d44e583e5d5",
+  callback: function(response){
+    alert("Payment success");
+  },
 
-    email: user.email,
+  onClose: function(){
+    alert("Payment cancelled");
+  }
+});
 
-    amount: 300000,
+alert("After setup");
 
-    callback: async function(response){
+handler.openIframe();
 
-      const verifyResponse = await fetch(
-        "https://nsyhconcqsqueydhhheu.supabase.co/functions/v1/verify-paystack",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify({
-            reference: response.reference
-          })
-        }
-      );
-
-      const verifyData =
-        await verifyResponse.json();
-
-      if(
-        verifyData.status === true &&
-        verifyData.data.status === "success"
-      ){
-
-        const expiryDate = new Date();
-        expiryDate.setDate(
-          expiryDate.getDate() + 30
-        );
-
-        const { error } = await client
-          .from("vip_members")
-          .insert([{
-            user_id: user.id,
-            payment_reference:
-              response.reference,
-            status: "active",
-            plan: "monthly",
-            expires_at:
-              expiryDate.toISOString()
-          }]);
-
-        if(error){
-          alert("VIP activation failed");
-          return;
-        }
-
-        document.getElementById(
-          "vip_status"
-        ).textContent = "💎 Active";
-
-        alert(
-          "VIP Activated Successfully!"
-        );
-
-      } else {
-
-        alert(
-          "Payment verification failed"
-        );
-
-      }
-
-    },
-
-    onClose: function(){
-      alert("Payment cancelled");
-    }
-
-  });
-
-  handler.openIframe();
+alert("After openIframe");
 
 };
 
