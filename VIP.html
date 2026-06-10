@@ -170,6 +170,8 @@ alert("User email: " + (user ? user.email : "NO USER"));
 
   alert("Before Paystack setup");
 
+try {
+
 const handler = PaystackPop.setup({
 
   key: "pk_live_42ad7a6d90ab234d75c876e0e12e8d44e583e5d5",
@@ -213,6 +215,12 @@ alert("After Paystack setup");
 handler.openIframe();
 
 alert("After openIframe");
+
+} catch(err) {
+
+  alert("ERROR: " + err.message);
+
+}
 
 };
 
