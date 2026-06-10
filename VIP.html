@@ -170,7 +170,17 @@ alert("User email: " + (user ? user.email : "NO USER"));
 
   alert("Before setup");
 
+alert("Before Paystack setup");
+
 const handler = PaystackPop.setup({
+  ...
+});
+
+alert("After Paystack setup");
+
+handler.openIframe();
+
+alert("After openIframe");
  
 key: "pk_live_42ad7a6d90ab234d75c876e0e12e8d44e583e5d5",
  
