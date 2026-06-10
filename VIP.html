@@ -151,16 +151,21 @@ checkVIP();
 document.getElementById("vipBtn").onclick = async function(){
 
 alert("VIP button clicked");
-  
-  const {
-    data: { user }
-  } = await client.auth.getUser();
+  alert("Getting user...");
+
+const {
+  data: { user }
+} = await client.auth.getUser();
+
+alert("User check finished");
 
   if(!user){
     alert("Please login first");
     return;
   }
 
+alert("User email: " + (user ? user.email : "NO USER"));
+  
   const handler = PaystackPop.setup({
 
     key: "pk_live_42ad7a6d90ab234d75c876e0e12e8d44e583e5d5",
