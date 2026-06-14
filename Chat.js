@@ -52,8 +52,6 @@ sendBtn.onclick = async () => {
 
   alert("Send clicked");
 
-};
-
   const text =
   messageInput.value.trim();
 
@@ -68,7 +66,7 @@ sendBtn.onclick = async () => {
     return;
   }
 
-  await client
+  const { error } = await client
     .from("community_messages")
     .insert([{
       user_id: user.id,
@@ -77,9 +75,15 @@ sendBtn.onclick = async () => {
       message: text
     }]);
 
+  if(error){
+    alert(error.message);
+    return;
+  }
+
   messageInput.value = "";
 
   loadMessages();
+
 };
 
 loadMessages();
