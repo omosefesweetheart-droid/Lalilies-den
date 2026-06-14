@@ -54,42 +54,6 @@ sendBtn.onclick = async () => {
 
 };
 
-  alert("Send clicked");
-
-  const text =
-  messageInput.value.trim();
-
-  if(!text) return;
-
-  const {
-    data: { user }
-  } = await client.auth.getUser();
-
-  if(!user){
-    alert("Please login first");
-    return;
-  }
-
-  const { error } = await client
-    .from("community_messages")
-    .insert([{
-      user_id: user.id,
-      display_name: user.email,
-      country: "Unknown",
-      message: text
-    }]);
-
-  if(error){
-    alert(error.message);
-    return;
-  }
-
-  messageInput.value = "";
-
-  loadMessages();
-
-};
-
 loadMessages();
 
 setInterval(loadMessages, 3000);
