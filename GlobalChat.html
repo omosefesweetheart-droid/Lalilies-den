@@ -112,14 +112,7 @@ font-weight:bold;
 </div>
 </div>
 
-<div class="chat-area">
-
-<div class="message">
-<div class="name">👑 Lalilies Den</div>
-Global Chat is ready.
-
-Messages from real fans will appear here after login and account creation are connected to Supabase.
-</div>
+<div class="chat-area" id="chatArea">
 
 </div>
 
@@ -129,11 +122,20 @@ Messages from real fans will appear here after login and account creation are co
 😀 📷 🎤
 </div>
 
-<input type="text" placeholder="Type your message...">
+<input
+id="messageInput"
+type="text"
+placeholder="Type your message..."
+>
 
-<button>Send</button>
+<button id="sendBtn">
+Send
+</button>
 
 </div>
 
+<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+<script src="chat.js"></script>
+  
 </body>
   </html>
