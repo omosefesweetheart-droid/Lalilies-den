@@ -50,10 +50,33 @@ async function loadMessages() {
 
 sendBtn.onclick = async () => {
 
-  alert("Send button connected");
+  const text = messageInput.value.trim();
+
+  if (!text) {
+    alert("Type a message first");
+    return;
+  }
+
+  const { error } = await client
+    .from("community_messages")
+    .insert([{
+      user_id: "test-user",
+      display_name: "Sweetheart 💖",
+      country: "Nigeria",
+      message: text
+    }]);
+
+  if (error) {
+    alert("Error: " + error.message);
+    return;
+  }
+
+  alert("Message sent!");
+
+  messageInput.value = "";
+
+  loadMessages();
 
 };
-
-loadMessages();
 
 setInterval(loadMessages, 3000);
