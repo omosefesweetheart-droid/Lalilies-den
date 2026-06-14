@@ -50,6 +50,10 @@ async function loadMessages() {
 
 sendBtn.onclick = async () => {
 
+  alert("Send button connected");
+
+};
+
   alert("Send clicked");
 
   const text =
