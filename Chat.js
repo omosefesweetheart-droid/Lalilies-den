@@ -1,3 +1,5 @@
+alert("chat.js loaded");
+
 const supabaseUrl =
 "https://nsyhconcqsqueydhhheu.supabase.co";
 
@@ -47,6 +49,10 @@ async function loadMessages() {
 }
 
 sendBtn.onclick = async () => {
+
+  alert("Send clicked");
+
+};
 
   const text =
   messageInput.value.trim();
