@@ -50,6 +50,10 @@ async function loadMessages() {
 
 sendBtn.onclick = async () => {
 
+  alert("SEND BUTTON FIRED");
+
+};
+  
   const text = messageInput.value.trim();
 
   if (!text) {
