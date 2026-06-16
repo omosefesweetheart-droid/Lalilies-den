@@ -81,4 +81,6 @@ sendBtn.onclick = async () => {
 
 };
 
+loadMessages();
+
 setInterval(loadMessages, 3000);
