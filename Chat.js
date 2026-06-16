@@ -1,5 +1,3 @@
-alert("chat.js loaded");
-
 const supabaseUrl =
 "https://nsyhconcqsqueydhhheu.supabase.co";
 
@@ -7,7 +5,10 @@ const supabaseKey =
 "sb_publishable_fFIEmCXZdk20izLCpWV7bg_ijCj0sHQ";
 
 const { createClient } = supabase;
-const client = createClient(supabaseUrl, supabaseKey);
+const client = createClient(
+  supabaseUrl,
+  supabaseKey
+);
 
 const chatArea =
 document.getElementById("chatArea");
@@ -23,9 +24,11 @@ async function loadMessages() {
   const { data, error } = await client
     .from("community_messages")
     .select("*")
-    .order("created_at", { ascending: true });
+    .order("created_at", {
+      ascending: true
+    });
 
-  if(error){
+  if (error) {
     console.log(error);
     return;
   }
@@ -42,45 +45,52 @@ async function loadMessages() {
         ${msg.message}
       </div>
     `;
+
   });
 
   chatArea.scrollTop =
   chatArea.scrollHeight;
 }
 
-sendBtn.onclick = async () => {
+sendBtn.addEventListener(
+  "click",
+  async () => {
 
-  alert("SEND BUTTON FIRED");
+    const text =
+    messageInput.value.trim();
 
-  const text = messageInput.value.trim();
+    if (!text) {
+      alert("Type a message first");
+      return;
+    }
 
-  if (!text) {
-    alert("Type a message first");
-    return;
+    const { error } =
+    await client
+      .from("community_messages")
+      .insert([
+        {
+          user_id: "test-user",
+          display_name: "Sweetheart 💖",
+          country: "Nigeria",
+          message: text
+        }
+      ]);
+
+    if (error) {
+      alert(error.message);
+      return;
+    }
+
+    messageInput.value = "";
+
+    loadMessages();
+
   }
-
-  const { error } = await client
-    .from("community_messages")
-    .insert([{
-      user_id: "test-user",
-      display_name: "Sweetheart 💖",
-      country: "Nigeria",
-      message: text
-    }]);
-
-  if (error) {
-    alert("Error: " + error.message);
-    return;
-  }
-
-  alert("Message sent!");
-
-  messageInput.value = "";
-
-  loadMessages();
-
-};
+);
 
 loadMessages();
 
-setInterval(loadMessages, 3000);
+setInterval(
+  loadMessages,
+  3000
+);
