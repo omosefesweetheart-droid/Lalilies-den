@@ -52,8 +52,6 @@ sendBtn.onclick = async () => {
 
   alert("SEND BUTTON FIRED");
 
-};
-  
   const text = messageInput.value.trim();
 
   if (!text) {
@@ -82,7 +80,5 @@ sendBtn.onclick = async () => {
   loadMessages();
 
 };
-
-loadMessages();
 
 setInterval(loadMessages, 3000);
