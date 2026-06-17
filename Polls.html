@@ -23,6 +23,10 @@ font-size:30px;
 font-weight:bold;
 }
 
+#pollsContainer{
+padding:10px;
+}
+
 .poll{
 background:#111;
 margin:20px;
@@ -36,7 +40,6 @@ background:#222;
 padding:15px;
 margin-top:10px;
 border-radius:10px;
-text-decoration:none;
 color:white;
 }
 
@@ -44,6 +47,18 @@ color:white;
 display:block;
 margin:20px;
 color:#FFD700;
+text-decoration:none;
+}
+
+.create-btn{
+display:block;
+margin:20px;
+padding:15px;
+background:#FFD700;
+color:black;
+text-align:center;
+border-radius:10px;
+font-weight:bold;
 text-decoration:none;
 }
 </style>
@@ -55,30 +70,22 @@ text-decoration:none;
 📊 Polls
 </div>
 
-<div class="poll">
-<h3>Which Lisa song should we stream next?</h3>
+<a href="#" class="create-btn">
+➕ Create Poll
+</a>
 
-<div class="option">
-🔥 Born Again
-</div>
+<div id="pollsContainer">
 
-<div class="option">
-💫 New Woman
-</div>
-
-<div class="option">
-👑 Rockstar
-</div>
-
-<div class="option">
-🎵 Moonlit Floor
-</div>
+Loading polls...
 
 </div>
 
 <a href="Community.html" class="back">
 ← Back to Community
 </a>
+
+<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+<script src="polls.js"></script>
 
 </body>
 </html>
