@@ -57,10 +57,15 @@ async function loadPolls() {
 let currentUser = null;
 
 async function getCurrentUser() {
-  const { data } = await client.auth.getUser();
+  const { data, error } = await client.auth.getSession();
 
-  if (data.user) {
-    currentUser = data.user;
+  if (error) {
+    console.log(error);
+    return;
+  }
+
+  if (data.session) {
+    currentUser = data.session.user;
   } else {
     alert("Please login first.");
     window.location.href = "Login.html";
