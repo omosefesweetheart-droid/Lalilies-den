@@ -29,6 +29,16 @@ async function loadPolls() {
 
   pollsContainer.innerHTML = "";
 
+if (data.length === 0) {
+  pollsContainer.innerHTML = `
+    <div class="poll-card">
+      <h3>No polls yet.</h3>
+      <p>Be the first fan to create a poll! 🎉</p>
+    </div>
+  `;
+  return;
+}
+
   data.forEach(poll => {
 
     pollsContainer.innerHTML += `
