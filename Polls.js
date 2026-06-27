@@ -54,4 +54,20 @@ async function loadPolls() {
   });
 }
 
-loadPolls();
+let currentUser = null;
+
+async function getCurrentUser() {
+  const { data } = await client.auth.getUser();
+
+  if (data.user) {
+    currentUser = data.user;
+  } else {
+    alert("Please login first.");
+    window.location.href = "Login.html";
+  }
+}
+
+(async () => {
+  await getCurrentUser();
+  await loadPolls();
+})();
